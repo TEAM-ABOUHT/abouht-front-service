@@ -1,24 +1,21 @@
+/* eslint-disable jsx-a11y/alt-text */
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
+import Main from './pages/main';
+import Title from './pages/title';
+import Login from './pages/login';
+import Register from './pages/register';
 
 function App() {
   return (
-    <div className="hero min-h-screen bg-base-200">
-      <div className="hero-content text-center">
-        <div className="max-w-md">
-          <h1 className="text-5xl font-bold">Hello there</h1>
-          <p className="py-6">
-            Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-            excepturi exercitationem quasi. In deleniti eaque aut repudiandae et
-            a id nisi.
-          </p>
-          <input
-            type="button"
-            className="btn btn-primary"
-            value="Get Started"
-          />
-        </div>
-      </div>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Main />} />
+        <Route path="/title" element={<Title />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
