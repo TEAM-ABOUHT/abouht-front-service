@@ -1,5 +1,5 @@
 const TopNavigation = () => (
-  <div className="navbar bg-base-100">
+  <div className="navbar bg-base-100 fixed">
     <div className="flex-none">
       <label
         htmlFor="my-drawer"
