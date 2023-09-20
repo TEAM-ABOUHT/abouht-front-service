@@ -22,17 +22,24 @@ const Drawer: React.FC<DrawerProps> = ({
         <div className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
           <ul>
             <li>
-              <a>Sidebar Item 1</a>
+              <a>Home</a>
             </li>
             <li>
-              <a>Sidebar Item 2</a>
+              <a>결제관리</a>
             </li>
+            <li>
+              <a>계정관리</a>
+            </li>
+            <li>
+              <a>글쓰기</a>
+            </li>
+            
           </ul>
           <div className="menu p-4 absolute inset-x-0 bottom-0 ">
             <ul>
               <div className="divider" />
               <li>
-                <a>Logout</a>
+                <a>로그아웃</a>
               </li>
             </ul>
           </div>
