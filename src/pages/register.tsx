@@ -19,7 +19,7 @@ const Register = () => {
               />
 
               <label className="label mt-3">
-                <span className="label-text">Password</span>
+                <span className="label-text">비밀번호</span>
               </label>
               <input
                 type="text"
@@ -28,7 +28,7 @@ const Register = () => {
               />
 
               <label className="label mt-3">
-                <span className="label-text">Confirm password</span>
+                <span className="label-text">비밀번호 재입력</span>
               </label>
               <input
                 type="text"
@@ -41,7 +41,7 @@ const Register = () => {
               </label>
 
               <label className="label mt-3">
-                <span className="label-text">Name</span>
+                <span className="label-text">이름</span>
               </label>
               <input
                 type="text"
@@ -50,11 +50,11 @@ const Register = () => {
               />
 
               <label className="label mt-3">
-                <span className="label-text">Phone Number</span>
+                <span className="label-text">전화번호</span>
               </label>
               <input
                 type="text"
-                placeholder="Phone Number"
+                placeholder="010-XXXX-XXXX"
                 className="input input-bordered"
               />
 
