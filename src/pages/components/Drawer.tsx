@@ -14,7 +14,7 @@ const Drawer: React.FC<DrawerProps> = ({
       <input id="my-drawer" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content table-cell w-screen h-screen">
         {topNav}
-        <div className="py-9">{children}</div>
+        {children}
         {bottomNav}
       </div>
       <div className="drawer-side">
