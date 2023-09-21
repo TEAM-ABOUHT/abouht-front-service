@@ -1,5 +1,4 @@
 import { useState } from 'react';
-
 const BottomNavigation = () => {
   const [selectBtnType, setBtnType] = useState<string>('home');
   const changeBtnType = ({ target }: React.ChangeEvent<HTMLInputElement>) => {
@@ -13,7 +12,7 @@ const BottomNavigation = () => {
 
   return (
     <>
-      <div className="static btm-nav bg-green-200" />
+      <div className="static bg-green-200 btm-nav" />
       <div className="btm-nav">
         <label htmlFor="tt" id="tt">
           <input
@@ -25,7 +24,7 @@ const BottomNavigation = () => {
           />
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-5 w-5"
+            className="w-5 h-5"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -48,7 +47,7 @@ const BottomNavigation = () => {
         <label htmlFor="books">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-5 w-5"
+            className="w-5 h-5"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -72,7 +71,7 @@ const BottomNavigation = () => {
         <label htmlFor="billing">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-5 w-5"
+            className="w-5 h-5"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -96,7 +95,7 @@ const BottomNavigation = () => {
         <label htmlFor="home">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-5 w-5"
+            className="w-5 h-5"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -113,4 +112,17 @@ const BottomNavigation = () => {
     </>
   );
 };
+
+export const WriteBottomNavigation = () => {
+  return (
+    <>
+      <div className="grid content-center grid-cols-3 btm-nav">
+        <button className="sm:mx-10 btn">저장</button>
+        <button className="sm:mx-10 btn">임시저장</button>
+        <button className="sm:mx-10 btn">업로드</button>
+      </div>
+    </>
+  );
+};
+
 export default BottomNavigation;

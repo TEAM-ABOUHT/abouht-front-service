@@ -12,14 +12,14 @@ const Drawer: React.FC<DrawerProps> = ({
   <>
     <div className="drawer">
       <input id="my-drawer" type="checkbox" className="drawer-toggle" />
-      <div className="drawer-content table-cell w-screen h-screen">
+      <div className="table-cell w-screen h-screen drawer-content">
         {topNav}
         {children}
         {bottomNav}
       </div>
       <div className="drawer-side">
         <label htmlFor="my-drawer" className="block drawer-overlay" />
-        <div className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
+        <div className="min-h-full p-4 menu w-80 bg-base-200 text-base-content">
           <ul>
             <li>
               <a>Home</a>
@@ -33,9 +33,8 @@ const Drawer: React.FC<DrawerProps> = ({
             <li>
               <a>글쓰기</a>
             </li>
-            
           </ul>
-          <div className="menu p-4 absolute inset-x-0 bottom-0 ">
+          <div className="absolute inset-x-0 bottom-0 p-4 menu ">
             <ul>
               <div className="divider" />
               <li>
