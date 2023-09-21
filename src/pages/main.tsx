@@ -31,13 +31,14 @@ const Main = () => {
 
   const settings = {
     arrows: false,
-    autoplay: false,
-    centerMode: true,
-    className: 'center',
+    autoplay: true,
     infinite: true,
-    centerPadding: '170px',
+    speed: 300,
     slidesToShow: 1,
-    speed: 500,
+    centerMode: true,
+    variableWidth: true,
+    adaptiveHeight: true,
+    focusOnSelect: true,
   };
   return (
     <Drawer topNav={<TopNavBar />}>
@@ -50,7 +51,7 @@ const Main = () => {
         </h1>
         <div className="divider" />
         {/* 북 카드 영역 */}
-        <div className="h-[calc(100%-10rem)]  flex-1 items-center content-center  ">
+        <div className="h-[calc(100%-10rem)] flex items-center ">
           <Carousel setting={settings} cards={dummyData} />
         </div>
       </div>
