@@ -1,6 +1,6 @@
 const TopNavigation = () => (
   <>
-    <div className="navbar bg-base-100 fixed">
+    <div className="fixed navbar bg-base-100">
       <div className="flex-none">
         <label
           htmlFor="my-drawer"
@@ -22,7 +22,7 @@ const TopNavigation = () => (
         </label>
       </div>
       <div className="flex-1">
-        <a className=" mx-5 normal-case text-xl">abouht</a>
+        <a className="mx-5 text-xl normal-case ">abouht</a>
       </div>
       <div className="flex-none">
         <button className="btn btn-square btn-ghost">
@@ -42,7 +42,7 @@ const TopNavigation = () => (
         </button>
       </div>
     </div>
-    <div className="navbar bg-base-100 static" />
+    <div className="static navbar bg-base-100" />
   </>
 );
 export default TopNavigation;
