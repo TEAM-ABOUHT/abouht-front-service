@@ -7,6 +7,8 @@ import { CardProps } from './components/Card';
 import dummyBookCover from '../assets/dummy book cover.png';
 import Tab from './components/Tab';
 import { Settings } from 'react-slick';
+
+
 const Main = () => {
   const dummyData: CardProps[] = [
     {
@@ -67,11 +69,11 @@ const Main = () => {
               ),
             },
             {
-              name: 'Dashboard',
+              name: '소설',
               element: (
                 <>
                   <h1 className="text-xl font-bold sm:text-3xl ">
-                    Dashboard
+                    소설
                     <br />
                     OOO 작가님의 「작품제목」
                   </h1>
@@ -79,11 +81,11 @@ const Main = () => {
               ),
             },
             {
-              name: 'Settings',
+              name: '시',
               element: (
                 <>
                   <h1 className="text-xl font-bold sm:text-3xl ">
-                    Settings
+                    시
                     <br />
                     OOO 작가님의 「작품제목」
                   </h1>
@@ -91,11 +93,11 @@ const Main = () => {
               ),
             },
             {
-              name: 'Contacts',
+              name: '판타지',
               element: (
                 <>
                   <h1 className="text-xl font-bold sm:text-3xl ">
-                    Contacts
+                    판타지
                     <br />
                     OOO 작가님의 「작품제목」
                   </h1>

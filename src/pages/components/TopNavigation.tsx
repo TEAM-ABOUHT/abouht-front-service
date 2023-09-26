@@ -22,7 +22,7 @@ const TopNavigation = () => (
         </label>
       </div>
       <div className="flex-1">
-        <a className="mx-5 text-xl normal-case ">abouht</a>
+        <a className="mx-5 text-xl normal-case ">[beta]<b>Abouht</b></a>
       </div>
       <div className="flex-none">
         <button className="btn btn-square btn-ghost">
