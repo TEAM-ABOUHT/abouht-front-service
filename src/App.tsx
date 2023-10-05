@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
+import ChannelService from "./ChannelService";
 import Main from './pages/main';
 import Title from './pages/title';
 import Login from './pages/login';
@@ -10,6 +11,12 @@ import Privacy from './pages/privacy';
 import Subscribe from './pages/subscribe';
 
 function App() {
+  ChannelService.loadScript();
+
+	ChannelService.boot({
+		pluginKey: import.meta.env.VITE_CHANNEL_PLUGIN_KEY!,
+	});
+
   return (
     <BrowserRouter>
       <Routes>
