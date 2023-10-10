@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import abouhtLogo from '../assets/abouht.svg';
 import axios from 'axios';
+import { Link, useNavigate } from 'react-router-dom';
+import { Cookies } from 'react-cookie';
 
 type loginForm = {
   email?: string;
@@ -8,14 +10,23 @@ type loginForm = {
 };
 
 const Login = () => {
+  const cookies = new Cookies();
   const [loginForm, setLoginForm] = useState<loginForm>();
-
+  const navigate = useNavigate();
   const requestLogin = async () => {
-    const result = await axios.get(import.meta.env.VITE_CHANNEL_GOORM_HOST! + '/reader/login', {
-      params: { email: loginForm?.email, password: loginForm?.password },
-    });
-    if (result.data.sucess) alert('로그인 성공! 알아서 메인페이지 이동');
-    else alert('error show console.log');
+    const result = await axios.get(
+      import.meta.env.VITE_CHANNEL_GOORM_HOST! ||
+        import.meta.env.VITE_CHANNEL_LOCAL_HOST! + '/auth/login',
+      {
+        params: { email: loginForm?.email, password: loginForm?.password },
+      }
+    );
+    if (result.data.status === 'success') {
+      cookies.set('token', result.data.data.token, {
+        path: '/',
+      });
+      navigate('/main');
+    } else alert('error show console.log');
     console.log(result.data);
   };
 
@@ -76,7 +87,9 @@ const Login = () => {
               <div>Apple</div>
             </div>
             <div className="grid grid-cols-4 gap-4 my-2">
-              <div>회원가입</div>
+              <div>
+                <Link to="/register">회원가입</Link>
+              </div>
             </div>
           </form>
         </div>

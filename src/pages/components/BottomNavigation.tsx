@@ -1,4 +1,6 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { PostContext } from '../write';
+import axios from 'axios';
 const BottomNavigation = () => {
   const [selectBtnType, setBtnType] = useState<string>('home');
   const changeBtnType = ({ target }: React.ChangeEvent<HTMLInputElement>) => {
@@ -114,12 +116,32 @@ const BottomNavigation = () => {
 };
 
 export const WriteBottomNavigation = () => {
+  const { title, context } = useContext(PostContext);
   return (
     <>
       <div className="grid content-center grid-cols-3 btm-nav">
-        <button className="sm:mx-10 btn">저장</button>
-        <button className="sm:mx-10 btn">임시저장</button>
-        <button className="sm:mx-10 btn">업로드</button>
+        <button className="sm:mx-10 btn btn-disabled">저장</button>
+        <button className="sm:mx-10 btn btn-disabled">임시저장</button>
+        <button
+          className="sm:mx-10 btn"
+          onClick={() => {
+            axios
+              .post(
+                import.meta.env.VITE_CHANNEL_GOORM_HOST! ||
+                  import.meta.env.VITE_CHANNEL_LOCAL_HOST! + '/literature/add',
+                { title, context }
+              )
+              .then((res) => {
+                console.log('####', res);
+              })
+              .catch((err) => {
+                console.error('####', err);
+                alert('권한이 없거나 잘못된 요청입니다.');
+              });
+          }}
+        >
+          업로드
+        </button>
       </div>
     </>
   );

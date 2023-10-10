@@ -7,7 +7,8 @@ import { CardProps } from './components/Card';
 import dummyBookCover from '../assets/dummy book cover.png';
 import Tab from './components/Tab';
 import { Settings } from 'react-slick';
-
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 
 const Main = () => {
   const dummyData: CardProps[] = [
@@ -32,6 +33,20 @@ const Main = () => {
       tags: ['math'],
     },
   ];
+  const [literatureList, setLiteratureList] = useState<undefined | CardProps[]>(
+    dummyData
+  );
+  useEffect(() => {
+    axios.get('http://localhost:3030/literature/list').then((response) => {
+      const res = response.data.data as Array<any>;
+      console.log(res);
+      setLiteratureList(
+        res.map(({ title }) => {
+          return { img: dummyBookCover, title };
+        })
+      );
+    });
+  }, []);
 
   const settings: Settings = {
     arrows: false,
@@ -43,7 +58,7 @@ const Main = () => {
     variableWidth: true,
     adaptiveHeight: true,
     focusOnSelect: true,
-    draggable: false,
+    draggable: true,
   };
   return (
     <Drawer topNav={<TopNavBar />}>
@@ -62,8 +77,8 @@ const Main = () => {
                   </h1>
                   <div className="divider" />
                   {/* 북 카드 영역 */}
-                  <div className="h-[calc(100%-10rem)] flex items-center ">
-                    <Carousel setting={settings} cards={dummyData} />
+                  <div className="h-[calc(100%-10rem)]  flex items-center ">
+                    <Carousel setting={settings} cards={literatureList} />
                   </div>
                 </>
               ),
