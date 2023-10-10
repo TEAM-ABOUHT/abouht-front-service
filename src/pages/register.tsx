@@ -25,7 +25,7 @@ const Register = () => {
   const requestRegister = async () => {
     const { email, password, name, gender, birthday, phoneNumber } =
       registerForm;
-    const result = await axios.post('http://localhost:3030/reader/signup', {
+    const result = await axios.post(import.meta.env.VITE_CHANNEL_GOORM_HOST! + '/reader/signup', {
       email,
       password,
       name,

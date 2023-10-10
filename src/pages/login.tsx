@@ -11,7 +11,7 @@ const Login = () => {
   const [loginForm, setLoginForm] = useState<loginForm>();
 
   const requestLogin = async () => {
-    const result = await axios.get('http://localhost:3030/reader/login', {
+    const result = await axios.get(import.meta.env.VITE_CHANNEL_GOORM_HOST! + '/reader/login', {
       params: { email: loginForm?.email, password: loginForm?.password },
     });
     if (result.data.sucess) alert('로그인 성공! 알아서 메인페이지 이동');
