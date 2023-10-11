@@ -10,26 +10,25 @@ import Write from './pages/write';
 import Privacy from './pages/privacy';
 import Subscribe from './pages/subscribe';
 import { CookiesProvider } from 'react-cookie';
+import axios from 'axios';
 function App() {
   ChannelService.loadScript();
 
   ChannelService.boot({
     pluginKey: import.meta.env.VITE_CHANNEL_PLUGIN_KEY!,
   });
-
+  axios.defaults.withCredentials = true;
   return (
     <BrowserRouter>
       <Routes>
-        <CookiesProvider>
-          <Route path="/" element={<Main />} />
-          <Route path="/main" element={<Main />} />
-          <Route path="/title" element={<Title />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/write" element={<Write />} />
-          <Route path="/privacy" element={<Privacy />} />
-          <Route path="/subscribe" element={<Subscribe />} />
-        </CookiesProvider>
+        <Route path="/" element={<Main />} />
+        <Route path="/main" element={<Main />} />
+        <Route path="/title" element={<Title />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/write" element={<Write />} />
+        <Route path="/privacy" element={<Privacy />} />
+        <Route path="/subscribe" element={<Subscribe />} />
       </Routes>
     </BrowserRouter>
   );

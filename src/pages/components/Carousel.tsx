@@ -12,8 +12,14 @@ type CarouselProps = {
 const Carousel = ({ setting, cards }: CarouselProps) => {
   return (
     <Slider {...setting}>
-      {cards?.map(({ img, title, badge, tags }: CardProps) => (
-        <Card img={img} title={title} badge={badge} tags={tags} />
+      {cards?.map(({ img, title, badge, tags, onClick }: CardProps) => (
+        <Card
+          img={img}
+          title={title}
+          badge={badge}
+          tags={tags}
+          onClick={onClick}
+        />
       ))}
     </Slider>
   );

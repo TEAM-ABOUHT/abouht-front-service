@@ -1,4 +1,4 @@
-import { useCookies } from 'react-cookie';
+import { Cookies, useCookies } from 'react-cookie';
 import { useNavigate } from 'react-router-dom';
 
 type DrawerProps = {
@@ -13,7 +13,7 @@ const Drawer: React.FC<DrawerProps> = ({
   bottomNav,
 }: DrawerProps) => {
   const navigate = useNavigate();
-  const [cookies, setCookie, removeCookie] = useCookies(['rememberNumber']);
+  const [cookies, setCookie, removeCookie] = useCookies(['token']);
   return (
     <>
       <div className="drawer">
@@ -53,7 +53,7 @@ const Drawer: React.FC<DrawerProps> = ({
                   {cookies.token ? (
                     <a
                       onClick={() => {
-                        Cookies.remove('token');
+                        removeCookie('token');
                         navigate('/login');
                       }}
                     >

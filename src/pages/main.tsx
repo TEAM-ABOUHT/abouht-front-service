@@ -41,8 +41,17 @@ const Main = () => {
       const res = response.data.data as Array<any>;
       console.log(res);
       setLiteratureList(
-        res.map(({ title }) => {
-          return { img: dummyBookCover, title };
+        res.map(({ title, content }) => {
+          return {
+            img: dummyBookCover,
+            title,
+            onClick: (e) => {
+              console.log(e);
+              setPopup(true);
+              setPostContent(content);
+              setPostTitle(title);
+            },
+          };
         })
       );
     });
@@ -60,8 +69,33 @@ const Main = () => {
     focusOnSelect: true,
     draggable: true,
   };
+  const [popupStatus, setPopup] = useState(false);
+  const [postContent, setPostContent] = useState('');
+  const [postTitle, setPostTitle] = useState('');
   return (
     <Drawer topNav={<TopNavBar />}>
+      <div
+        className={`flex flex-col items-center justify-center h-screen ${
+          popupStatus ? '' : 'hidden'
+        }`}
+      >
+        <div className="w-full h-screen bg-center bg-cover">
+          <button
+            className="absolute z-50 btn"
+            onClick={() => {
+              setPopup(false);
+            }}
+          >
+            닫기
+          </button>
+          <div className="flex items-center justify-center w-full h-full backdrop-brightness-50">
+            <span className="w-1/2 text-4xl text-center text-white">
+              <h1>{postTitle}</h1>
+              <p>{postContent}</p>
+            </span>
+          </div>
+        </div>
+      </div>
       <div className="container w-full h-[calc(100vh-8rem)] px-4  mx-auto sm:px-6 lg:px-8 max-w-6xl  ">
         {/* 상단 북 소개 헤더 영역 */}
         <Tab

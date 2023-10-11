@@ -3,11 +3,15 @@ export type CardProps = {
   title: string;
   badge?: string | null;
   tags?: string[] | null;
+  onClick?: void | any;
 };
 
-const Card = ({ img, title, badge, tags }: CardProps) => (
+const Card = ({ img, title, badge, tags, onClick }: CardProps) => (
   <div className="grid grid-cols-1 m-5 place-items-center">
-    <div className=" shadow-xl w-[199px] h-[281px] sm:w-[199px] sm:h-[281px] md:w-[397px] md:h-[561px] card bg-base-100 ">
+    <div
+      className=" shadow-xl w-[199px] h-[281px] sm:w-[199px] sm:h-[281px] md:w-[397px] md:h-[561px] card bg-base-100 "
+      onClick={onClick}
+    >
       <figure>
         <img className="object-cover h-fit" src={img} />
       </figure>

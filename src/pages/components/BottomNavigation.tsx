@@ -1,6 +1,7 @@
 import { useState, useContext } from 'react';
 import { PostContext } from '../write';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 const BottomNavigation = () => {
   const [selectBtnType, setBtnType] = useState<string>('home');
   const changeBtnType = ({ target }: React.ChangeEvent<HTMLInputElement>) => {
@@ -117,6 +118,8 @@ const BottomNavigation = () => {
 
 export const WriteBottomNavigation = () => {
   const { title, context } = useContext(PostContext);
+  const navigate = useNavigate();
+
   return (
     <>
       <div className="grid content-center grid-cols-3 btm-nav">
@@ -129,10 +132,13 @@ export const WriteBottomNavigation = () => {
               .post(
                 import.meta.env.VITE_CHANNEL_GOORM_HOST! ||
                   import.meta.env.VITE_CHANNEL_LOCAL_HOST! + '/literature/add',
-                { title, context }
+                { title, content: context },
+                { withCredentials: true }
               )
               .then((res) => {
+                alert('해당 글이 게시되었습니다!');
                 console.log('####', res);
+                navigate('/main');
               })
               .catch((err) => {
                 console.error('####', err);
